@@ -1,34 +1,32 @@
 #include "main.h"
 
-int num_length(int num) 
+int num_length(int num)
 {
     int length = 0;
-    if (num == 0) {
+
+    if (num == 0)
+    {
         return 1;
     }
+
     while (num != 0)
     {
         num /= 10;
         length++;
     }
+
     return length;
 }
 
 void int_to_str(int num, char *str)
 {
     int length = num_length(num);
+    int i = length - 1;
 
-    if (num < 0) {
-        str[0] = '-';
-        num = -num;
-        length++;
-    }
-
-    for (int i = length - 1; i >= 0; i--)
+    while (i >= 0)
     {
-        str[i] = '0' + num % 10;
+        str[i] = '0' + (num % 10);
         num /= 10;
+        i--;
     }
-
-    str[length] = '\0';
 }
