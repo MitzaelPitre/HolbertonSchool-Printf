@@ -1,8 +1,5 @@
 #include "main.h"
-
-int print_char(char c);
-int print_str(char *str);
-int print_int(int num);
+#include "print_functions.h"
 
 int _printf(const char *format, ...)
 {

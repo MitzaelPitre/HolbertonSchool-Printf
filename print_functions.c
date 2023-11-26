@@ -1,6 +1,7 @@
-#include "main.h"
+#include "print_functions.h"
+#include <unistd.h>
 
-int num_length(int num) {
+static int num_length(int num) {
     int length = 0;
     if (num == 0) {
         return 1;
@@ -12,7 +13,7 @@ int num_length(int num) {
     return length;
 }
 
-void int_to_str(int num, char *str) {
+static void int_to_str(int num, char *str) {
     int length = num_length(num);
 
     if (num < 0) {
@@ -43,8 +44,7 @@ int print_str(char *str) {
     return len;
 }
 
-int print_int(int num)
-{
+int print_int(int num) {
     char num_str[20];
     int_to_str(num, num_str);
 
