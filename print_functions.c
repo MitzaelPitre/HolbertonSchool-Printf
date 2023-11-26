@@ -1,19 +1,21 @@
-#include "print_functions.h"
-#include <unistd.h>
+#include "main.h"
 
-static int num_length(int num) {
+int num_length(int num) 
+{
     int length = 0;
     if (num == 0) {
         return 1;
     }
-    while (num != 0) {
+    while (num != 0)
+    {
         num /= 10;
         length++;
     }
     return length;
 }
 
-static void int_to_str(int num, char *str) {
+void int_to_str(int num, char *str)
+{
     int length = num_length(num);
 
     if (num < 0) {
@@ -22,37 +24,11 @@ static void int_to_str(int num, char *str) {
         length++;
     }
 
-    for (int i = length - 1; i >= 0; i--) {
+    for (int i = length - 1; i >= 0; i--)
+    {
         str[i] = '0' + num % 10;
         num /= 10;
     }
 
     str[length] = '\0';
-}
-
-int print_char(char c) {
-    write(1, &c, 1);
-    return 1;
-}
-
-int print_str(char *str) {
-    int len = 0;
-    while (str[len] != '\0') {
-        write(1, &str[len], 1);
-        len++;
-    }
-    return len;
-}
-
-int print_int(int num) {
-    char num_str[20];
-    int_to_str(num, num_str);
-
-    int len = 0;
-    while (num_str[len] != '\0') {
-        write(1, &num_str[len], 1);
-        len++;
-    }
-
-    return len;
 }

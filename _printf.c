@@ -1,5 +1,4 @@
 #include "main.h"
-#include "print_functions.h"
 
 int _printf(const char *format, ...)
 {
