@@ -1,0 +1,44 @@
+.LL 20:20
+.TH man 3 "26 November 2023" "0.01" "_printf man page"
+.SH NAME
+.B _Printf
+.SH SYNOPSIS
+A simple _printf function
+.SH DESCRIPTION
+This function writes its output to the stdout, the standard output stream.
+.SH USAGE
+To use _printf, you have to use the following key characters preceded by % symbol.
+.RS 3
+%c: To be used to print characters
+.RS 0
+%s: To be used to print strings
+.RS 0
+%d: To print integers of max and min size of an int type
+.RS 0
+%i: To print integers of max and min size of an int type
+.RS 0
+%%: To print a percent sign
+.RS 0
+%b: To print a number in binary form
+.SH EXAMPLES
+.PP
+Print a character:
+.PP
+.B _printf("%c", 'A');
+.PP
+Print a string:
+.PP
+.B _printf("%s", "Hello, Holberton!");
+.PP
+Print an integer:
+.PP
+.B _printf("%d", 69);
+.SH RETURN VALUES
+The _printf() function returns an integer representing the number of symbols
+printed, not counting \\0 for the string.
+.SH SEE ALSO
+.I printf(3)
+.SH AUTHOR
+Mitzael Pitre De Jesus
+.br
+Jeremy Cardona
