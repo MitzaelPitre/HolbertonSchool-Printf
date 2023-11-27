@@ -3,5 +3,5 @@
 int main(void)
 {
     _printf("Hello, %s!\n", "Holberton");
-    return 0;
+    return (0);
 }

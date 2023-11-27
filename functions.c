@@ -121,5 +121,5 @@ int (*cmp_func(const char a))(va_list)
 		}
 	}
 
-	return (NULL);
+	return (0);
 }
