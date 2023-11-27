@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    _printf("%b\n", 69);
+    _printf("Hola, %s!\n", "Holberton");
     return (0);
 }
