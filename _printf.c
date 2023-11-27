@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg_list;
-	unsigned int i = 0, characters_number = 0;
+	unsigned int i = 0, character_number = 0;
 
 	if (!format)
 		return (-1);
@@ -21,29 +21,30 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
+
 			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				characters_number++;
+				character_number++;
 				i++;
 			}
 			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				characters_numbers += cmp_func(format[i + 1])(Mylist);
+				character_number += (cmp_func(format[i + 1]))(arg_list);
 				i++;
 			}
 			else
 			{
 				_putchar(format[i]);
-				characters_number++;
+				character_number++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			characters_numbers++;
+			character_number++;
 		}
 	}
-	va_end(Mylist);
-	return (chaacters_number);
+	va_end(arg_list);
+	return (character_number);
 }
