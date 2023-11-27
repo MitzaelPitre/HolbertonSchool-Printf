@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * _putchar - Write Characters
+ * _putchar - Entry function. Write Characters
  * @c: variable va_list
+ *
  * Return: Writed character
  */
 
@@ -12,8 +13,9 @@ int _putchar(char c)
 }
 
 /**
- * printc - Print character
+ * printc - Entry function. Print characters
  * @arg_list: variable va_list
+ *
  * Return: 1 (nB)
  */
 
@@ -24,8 +26,9 @@ int printc(va_list arg_list)
 }
 
 /**
- * print_string - Print string
+ * print_string - Entry point. Print string
  * @s: variable va_list
+ *
  * Return: nB (number of bytes) 7 (NULL)
  */
 
@@ -51,8 +54,9 @@ int print_string(va_list s)
 }
 
 /**
- * print_n - Print number
- * @n: variable va_list
+ * print_n - Entry point. Print number
+ * @n: Variable va_list
+ *
  * Return: count (nB)
  */
 
