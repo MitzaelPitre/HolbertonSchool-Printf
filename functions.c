@@ -97,27 +97,28 @@ int print_n(va_list n)
 }
 
 /**
- * cmp_func - Main point
+ * cmp_func - Entry point
  * @a: character
  * Return: 0
  */
 
 int (*cmp_func(const char a))(va_list)
 {
-	print_f printfArr[] = {
+	print_f printf[] = {
 		{'c', printc},
 		{'s', print_string},
 		{'d', print_n},
 		{'i', print_n},
-		{'\0', NULL}};
+		{'\0', NULL}
+	};
 
 	int k;
 
-	for (k = 0; printfArr[k].p != '\0'; k++)
+	for (k = 0; printf[k].p != '\0'; k++)
 	{
-		if (printfArr[k].p == a)
+		if (printf[k].p == a)
 		{
-			return (printfArr[k].func);
+			return (printf[k].func);
 		}
 	}
 
