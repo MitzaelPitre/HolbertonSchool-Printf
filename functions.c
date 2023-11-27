@@ -34,7 +34,7 @@ int print_string(va_list s)
 	char *str;
 	int nB;
 
-	str = va_arg(s, char *);
+	str = va_arg(s, char*);
 	if (str == NULL)
 	{
 		write(1, "(null)", 7);
