@@ -1,20 +1,21 @@
 #include "main.h"
 
 /**
- * _printf - printf function
+ * _printf - printf function.
  * @format: variable
- * Return: number of bytes
+ *
+ * Return: nbytes printed.
  */
 
 int _printf(const char *format, ...)
 {
-	va_list arg_list;
-	unsigned int i = 0, character_number = 0;
+	va_list list;
+	unsigned int i = 0, characters_number = 0;
 
 	if (!format)
 		return (-1);
 
-	va_start(arg_list, format);
+	va_start(list, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -25,26 +26,26 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				character_number++;
+				characters_number++;
 				i++;
 			}
 			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				character_number += (cmp_func(format[i + 1]))(arg_list);
+				characters_number += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
 			else
 			{
 				_putchar(format[i]);
-				character_number++;
+				characters_number++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			character_number++;
+			characters_number++;
 		}
 	}
-	va_end(arg_list);
-	return (character_number);
+	va_end(list);
+	return (characters_number);
 }

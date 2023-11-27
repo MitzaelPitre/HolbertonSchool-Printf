@@ -14,14 +14,14 @@ int _putchar(char c)
 
 /**
  * printc - Entry function. Print characters
- * @arg_list: variable va_list
+ * @list: variable va_list
  *
- * Return: 1 (nB)
+ * Return: 1 (number of bytes)
  */
 
-int printc(va_list arg_list)
+int printc(va_list list)
 {
-	_putchar(va_arg(arg_list, int));
+	_putchar(va_arg(list, int));
 	return (1);
 }
 
@@ -29,35 +29,35 @@ int printc(va_list arg_list)
  * print_string - Entry point. Print string
  * @s: variable va_list
  *
- * Return: nB (number of bytes) 7 (NULL)
+ * Return: b (number of bytes) 6 (NULL)
  */
 
 int print_string(va_list s)
 {
 	char *str;
-	int nB;
+	int b;
 
 	str = va_arg(s, char*);
 	if (str == NULL)
 	{
-		write(1, "(null)", 7);
-		return (7);
+		write(1, "(null)", 6);
+		return (6);
 	}
 	else
 	{
-		for (nB = 0; str[nB] != '\0'; nB++)
+		for (b = 0; str[b] != '\0'; b++)
 		{
-			_putchar(str[nB]);
+			_putchar(str[b]);
 		}
 	}
-	return (nB);
+	return (b);
 }
 
 /**
  * print_n - Entry point. Print number
  * @n: Variable va_list
  *
- * Return: count (nB)
+ * Return: count (nbytes)
  */
 
 int print_n(va_list n)
