@@ -1,14 +1,30 @@
 #include "main.h"
 
-int main(void)
+/**
+ * cmp_func - Entry point
+ * @a: character.
+ *
+ * Return: 0.
+ */
+int (*cmp_func(const char a))(va_list)
 {
-    char c = 'A';
-    char str[] = "Hello, World!";
-    int num = 42;
+	print_f printf[] = {
+		{'c', printc},
+		{'s', print_string},
+		{'d', print_n},
+		{'i', print_n},
+		{'\0', NULL}
+	};
 
-    _printf("Character: %c\n", c);
-    _printf("String: %s\n", str);
-    _printf("Number: %d\n", num);
+	int k;
 
-    return 0;
+	for (k = 0; printf[k].p != '\0'; k++)
+	{
+		if (printf[k].p == a)
+		{
+			return (printf[k].func);
+		}
+	}
+
+	return (0);
 }

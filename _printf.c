@@ -1,50 +1,51 @@
 #include "main.h"
 
+/**
+ * _printf - printf function.
+ * @format: variable
+ *
+ * Return: nbytes printed.
+ */
+
 int _printf(const char *format, ...)
 {
-    va_list Mylist;
-    int p_char = 0;
+	va_list list;
+	unsigned int i = 0, characters_number = 0;
 
-    va_start(Mylist, format);
+	if (!format)
+		return (-1);
 
-    if (format == NULL)
-    {
-        return (-1);
-    }
+	va_start(list, format);
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
+		{
+			if (format[i + 1] == '\0')
+				return (-1);
 
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-
-            if (*format == 'c')
-            {
-                p_char += print_char(va_arg(Mylist, int));
-            }
-            else if (*format == 's')
-            {
-                p_char += print_str(va_arg(Mylist, char*));
-            }
-            else if (*format == 'd' || *format == 'i')
-            {
-                p_char += print_int(va_arg(Mylist, int));
-            }
-            else
-            {
-                write(1, format, 1);
-                p_char++;
-            }
-        }
-        else
-        {
-            write(1, format, 1);
-            p_char++;
-        }
-
-        format++;
-    }
-
-    va_end(Mylist);
-    return (p_char);
+			else if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				characters_number++;
+				i++;
+			}
+			else if (cmp_func(format[i + 1]) != NULL)
+			{
+				characters_number += (cmp_func(format[i + 1]))(list);
+				i++;
+			}
+			else
+			{
+				_putchar(format[i]);
+				characters_number++;
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			characters_number++;
+		}
+	}
+	va_end(list);
+	return (characters_number);
 }
