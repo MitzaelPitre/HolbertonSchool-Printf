@@ -15,9 +15,10 @@
 
 typedef struct types
 {
-    char p;
-    int (*func)(va_list);
-} print_f;
+	char p;
+	int (*func)(va_list);
+}
+print_f;
 
 int _putchar(char c);
 int _printf(const char *format, ...);

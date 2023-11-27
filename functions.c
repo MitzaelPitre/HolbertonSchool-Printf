@@ -14,7 +14,7 @@ int _putchar(char c)
 /**
  * printc - Print character
  * @arg_list: variable va_list
- * Return: 1 (number of bytes)
+ * Return: 1 (nB)
  */
 
 int printc(va_list arg_list)
@@ -31,9 +31,10 @@ int printc(va_list arg_list)
 
 int print_string(va_list s)
 {
-	char *str = va_arg(s, char *);
+	char *str;
 	int nB;
-
+	
+	str = va_arg(s, char *);
 	if (str == NULL)
 	{
 		write(1, "(null)", 7);
