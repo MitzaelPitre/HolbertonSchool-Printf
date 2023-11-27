@@ -101,6 +101,43 @@ int print_n(va_list n)
 }
 
 /**
+ * print_b - Entry point. Print binary representation of an unsigned int
+ * @n: Variable va_list
+ *
+ * Return: count (number of bytes printed)
+ */
+
+int print_b(va_list n)
+{
+	unsigned int number = va_arg(n, unsigned int);
+	int count = 0;
+
+	if (number == 0)
+	{
+		_putchar('0');
+		count++;
+	}
+	else
+	{
+		count += print_binary(number);
+	}
+
+	return (count);
+}
+
+int print_binary(unsigned int n)
+{
+	int count = 0;
+
+	if (n == 0)
+		return (0);
+
+	count += print_binary(n / 2);
+	_putchar((n % 2) + '0');
+	return (count + 1);
+}
+
+/**
  * cmp_func - Entry point
  * @a: character
  * Return: 0
@@ -113,6 +150,7 @@ int (*cmp_func(const char a))(va_list)
 		{'s', print_string},
 		{'d', print_n},
 		{'i', print_n},
+		{'b', print_b},
 		{'\0', NULL}
 	};
 
